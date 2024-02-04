@@ -26,7 +26,7 @@ const AppNavigator = () => {
         <Drawer.Navigator
             initialRouteName="Home"
             // hides Navbar
-            screenOptions={{ headerShown: false }}
+            // screenOptions={{ headerShown: false }}
         >
             <Drawer.Screen name="Home" component={HomeScreen} />
 

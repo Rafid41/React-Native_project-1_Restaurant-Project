@@ -10,8 +10,15 @@ export const loadDishes = (dishes) => {
 };
 
 export const getDishes = () => (dispatch) => {
+    // axios e link er last e ".json" ditei hbe
     axios
-        .get("http://localhost:3000/dishes")
-        .then((response) => console.log(response))
+        .get(
+            "https://restaurant-project-reactnative-default-rtdb.asia-southeast1.firebasedatabase.app/dishes.json"
+        )
+        .then((response) => {
+            // store in redux
+            // goes to reducer
+            dispatch(loadDishes(response.data));
+        })
         .catch((err) => console.log(err));
 };
