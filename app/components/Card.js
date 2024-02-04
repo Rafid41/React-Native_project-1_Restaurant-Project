@@ -13,7 +13,7 @@ const mapDishpatchToProps = (dispatch) => {
 
 const Card = (props) => {
     const removeFav = () => {
-        // react Native Alert, have extra functionality
+        // react Native Alert, have extra functionality , better for asking questions
         Alert.alert(
             "Delete Favourite?",
             "Are you sure you want to delete the favorite dish " +
