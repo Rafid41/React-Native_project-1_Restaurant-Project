@@ -3,6 +3,7 @@
 import React from "react";
 import HomeScreen from "./screens/HomeScreen";
 import MenuScreen from "./screens/MenuScreen";
+import FavouritesScreen from "./screens/FavouritesScreen";
 import DishDetailScreen from "./screens/DishDetailScreen";
 import Icon from "./components/Icon";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -50,19 +51,51 @@ const MenuStack = () => {
     );
 };
 
+const FavStack = () => {
+    const navigation = useNavigation();
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerRight: () => (
+                    <Icon
+                        // built in fn to open/close Drawer
+                        action={() => navigation.toggleDrawer()}
+                        name="menu"
+                        color="black"
+                        size={24}
+                        iconStyle={{
+                            paddingRight: 15,
+                        }}
+                    />
+                ),
+                headerStyle: {
+                    backgroundColor: "#F53B50",
+                },
+                headerTintColor: "#fff",
+                headerTitleStyle: {
+                    fontWeight: "bold",
+                },
+            }}
+        >
+            <Stack.Screen name="Favourites" component={FavouritesScreen} />
+        </Stack.Navigator>
+    );
+};
+
 const AppNavigator = () => {
     return (
         // initialRouteName="Home" means first app open e "Home" ashbe
         <Drawer.Navigator
             initialRouteName="Home"
             // hides Navbar
-            screenOptions={{ headerShown: false }}
+            //screenOptions={{ headerShown: false }}
         >
             <Drawer.Screen name="Home" component={HomeScreen} />
 
             {/* #navigator nesting, drawer er vitor stack call,
              # Menustack call korle er first element e enter korbe */}
             <Drawer.Screen name="Menu" component={MenuStack} />
+            <Drawer.Screen name="Favourites" component={FavStack} />
         </Drawer.Navigator>
     );
 };
