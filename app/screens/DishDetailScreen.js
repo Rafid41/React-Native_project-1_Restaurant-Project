@@ -10,7 +10,6 @@ const DishDetailScreen = (props) => {
         <View>
             <Image source={{ uri: dish.image }} style={styles.image} />
             <View style={styles.details}>
-                <Text style={styles.name}>{dish.name}</Text>
                 <Text>{dish.description}</Text>
             </View>
         </View>
