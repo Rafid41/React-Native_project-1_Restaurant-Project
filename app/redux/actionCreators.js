@@ -19,6 +19,7 @@ export const getDishes = () => (dispatch) => {
             // store in redux
             // goes to reducer
             dispatch(loadDishes(response.data));
+            console.log("data leak");
         })
         .catch((err) => console.log(err));
 };

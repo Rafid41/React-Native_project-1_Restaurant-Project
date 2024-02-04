@@ -24,7 +24,7 @@ const MenuScreen = (props) => {
     // ================ useEffect ==================//
     useEffect(() => {
         props.getDishes();
-    });
+    }, []);
     // console.log(props);
 
     // ================== return ====================//
