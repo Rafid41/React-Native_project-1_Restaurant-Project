@@ -10,7 +10,7 @@ import {
 
 const MenuItem = (props) => {
     return (
-        <TouchableHighlight>
+        <TouchableHighlight onPress={props.selectDish}>
             <View style={styles.container}>
                 {props.item.image && (
                     <Image

@@ -32,7 +32,17 @@ const MenuScreen = (props) => {
         <View>
             <FlatList
                 data={props.dishes}
-                renderItem={({ item }) => <MenuItem item={item} />}
+                renderItem={({ item }) => (
+                    <MenuItem
+                        item={item}
+                        selectDish={() =>
+                            // navigate er second praram e j kono data pass kora jabe next page e
+                            props.navigation.navigate("Dish Detail", {
+                                dish: item,
+                            })
+                        }
+                    />
+                )}
                 keyExtractor={(item) => item.id.toString()}
             />
         </View>
