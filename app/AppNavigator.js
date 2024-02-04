@@ -30,7 +30,8 @@ const AppNavigator = () => {
         >
             <Drawer.Screen name="Home" component={HomeScreen} />
 
-            {/* navigator nesting, drawer er vitor stack call */}
+            {/* #navigator nesting, drawer er vitor stack call,
+             # Menustack call korle er first element e enter korbe */}
             <Drawer.Screen name="Menu" component={MenuStack} />
         </Drawer.Navigator>
     );
