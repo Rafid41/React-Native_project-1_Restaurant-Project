@@ -2,6 +2,7 @@
 import React from "react";
 import { View, Text, FlatList } from "react-native";
 import { connect } from "react-redux";
+import Card from "../components/Card";
 
 // =========== mapStateToProps =========//
 const mapStateToProps = (state) => {
@@ -15,7 +16,7 @@ const FavouritesScreen = (props) => {
         <View>
             <FlatList
                 data={props.favourites}
-                renderItem={({ item }) => <Text>{item.name}</Text>}
+                renderItem={({ item }) => <Card item={item} />}
                 keyExtractor={(item) => item.id.toString()}
             />
         </View>
