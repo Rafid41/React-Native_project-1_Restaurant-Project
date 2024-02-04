@@ -1,11 +1,16 @@
 // app\screens\MenuScreen.js
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 
-const MenuScreen = () => {
+const MenuScreen = (props) => {
+    // console.log(props);
     return (
         <View>
             <Text>Menu Screen</Text>
+            <Button
+                title="Press"
+                onPress={() => props.navigation.navigate("Dish Detail")}
+            />
         </View>
     );
 };
