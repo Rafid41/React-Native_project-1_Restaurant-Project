@@ -3,10 +3,10 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-const Icon = () => {
+const Icon = (props) => {
     return (
-        <TouchableOpacity style={{ paddingRight: 15 }}>
-            <Ionicons name="menu" size={24} color="black" />
+        <TouchableOpacity style={{ ...props.iconStyle }} onPress={props.action}>
+            <Ionicons name={props.name} size={props.size} color={props.color} />
         </TouchableOpacity>
     );
 };

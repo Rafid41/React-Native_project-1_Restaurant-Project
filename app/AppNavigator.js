@@ -7,15 +7,29 @@ import DishDetailScreen from "./screens/DishDetailScreen";
 import Icon from "./components/Icon";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 const MenuStack = () => {
+    const navigation = useNavigation();
+
     return (
         <Stack.Navigator
             screenOptions={{
-                headerRight: () => <Icon />,
+                headerRight: () => (
+                    <Icon
+                        // built in fn to open/close Drawer
+                        action={() => navigation.toggleDrawer()}
+                        name="menu"
+                        color="black"
+                        size={24}
+                        iconStyle={{
+                            paddingRight: 15,
+                        }}
+                    />
+                ),
                 headerStyle: {
                     backgroundColor: "#F53B50",
                 },
