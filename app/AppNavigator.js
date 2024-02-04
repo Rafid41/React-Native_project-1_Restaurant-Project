@@ -22,9 +22,15 @@ const MenuStack = () => {
 
 const AppNavigator = () => {
     return (
-        <Drawer.Navigator initialRouteName="Home">
+        // initialRouteName="Home" means first app open e "Home" ashbe
+        <Drawer.Navigator
+            initialRouteName="Home"
+            // hides Navbar
+            screenOptions={{ headerShown: false }}
+        >
             <Drawer.Screen name="Home" component={HomeScreen} />
 
+            {/* navigator nesting, drawer er vitor stack call */}
             <Drawer.Screen name="Menu" component={MenuStack} />
         </Drawer.Navigator>
     );
