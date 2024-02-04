@@ -1,18 +1,50 @@
 // app\components\Card.js
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, Pressable, Alert } from "react-native";
+import { connect } from "react-redux";
+import { removeFavourite } from "../redux/actionCreators";
+
+// ================ mapDishpatchToProps =====================//
+const mapDishpatchToProps = (dispatch) => {
+    return {
+        removeFavourite: (dish) => dispatch(removeFavourite(dish)),
+    };
+};
 
 const Card = (props) => {
+    const removeFav = () => {
+        // react Native Alert, have extra functionality
+        Alert.alert(
+            "Delete Favourite?",
+            "Are you sure you want to delete the favorite dish " +
+                props.item.name +
+                "?",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancelled!"),
+                    style: "cancel",
+                },
+                {
+                    text: "OK",
+                    onPress: () => props.removeFavourite(props.item),
+                },
+            ],
+            { cancelable: false }
+        );
+    };
     return (
-        <View style={styles.card}>
-            <Image
-                source={{ uri: props.item.image }}
-                style={styles.image}
-            ></Image>
-            <View style={styles.details}>
-                <Text style={styles.title}>{props.item.name}</Text>
+        <Pressable onLongPress={() => removeFav()}>
+            <View style={styles.card}>
+                <Image
+                    source={{ uri: props.item.image }}
+                    style={styles.image}
+                ></Image>
+                <View style={styles.details}>
+                    <Text style={styles.title}>{props.item.name}</Text>
+                </View>
             </View>
-        </View>
+        </Pressable>
     );
 };
 
@@ -38,4 +70,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Card;
+export default connect(null, mapDishpatchToProps)(Card);
