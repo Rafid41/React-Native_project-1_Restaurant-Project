@@ -4,7 +4,7 @@ import React from "react";
 import HomeScreen from "./screens/HomeScreen";
 import MenuScreen from "./screens/MenuScreen";
 import DishDetailScreen from "./screens/DishDetailScreen";
-import { View, Text } from "react-native";
+import Icon from "./components/Icon";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -15,6 +15,7 @@ const MenuStack = () => {
     return (
         <Stack.Navigator
             screenOptions={{
+                headerRight: () => <Icon />,
                 headerStyle: {
                     backgroundColor: "#F53B50",
                 },
@@ -41,7 +42,7 @@ const AppNavigator = () => {
         <Drawer.Navigator
             initialRouteName="Home"
             // hides Navbar
-            // screenOptions={{ headerShown: false }}
+            screenOptions={{ headerShown: false }}
         >
             <Drawer.Screen name="Home" component={HomeScreen} />
 
